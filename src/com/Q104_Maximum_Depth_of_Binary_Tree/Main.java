@@ -39,7 +39,7 @@ public class Main {
         BinaryTreeConstructor bt = new BinaryTreeConstructor();
         Solution tt = new Solution();
         for(List<Integer> input : inputs){
-            TreeNode tn = bt.newConstruct(input);
+            TreeNode tn = bt.construct(input);
             System.out.println(tt.maxDepth(tn));
             System.out.println("===================================");
         }

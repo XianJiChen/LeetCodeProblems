@@ -59,7 +59,7 @@ public class Main {
         for(int i=0; i<inputs.size(); i++){
             List<Integer> input = inputs.get(i);
             int targetSum = targetSums.get(i);
-            TreeNode tn = btc.newConstruct(input);
+            TreeNode tn = btc.construct(input);
             System.out.println(input.toString());
             System.out.println(targetSum);
             System.out.println(tt.hasPathSum(tn, targetSum));

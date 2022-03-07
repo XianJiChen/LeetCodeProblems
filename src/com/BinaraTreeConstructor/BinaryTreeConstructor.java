@@ -9,25 +9,8 @@ public class BinaryTreeConstructor {
     public BinaryTreeConstructor() {
         this.start = 0;
     }
-//    public TreeNode construct(List<Integer> arr){
-//        this.start = 0;
-//        return this.constructTree(arr);
-//    }
-//    private TreeNode constructTree(List<Integer> arr){
-//        if (start>=arr.size()){
-//            return null;
-//        }
-//        else if(arr.get(start) == null) {
-//            this.start++;
-//            return null;
-//        }
-//        else{
-//            int val = arr.get(start);
-//            start++;
-//            return new TreeNode(val, constructTree(arr), constructTree(arr));
-//        }
-//    }
-    public TreeNode newConstruct(List<Integer> arr){
+
+    public TreeNode construct(List<Integer> arr){
         if(arr.isEmpty()){
             return null;
         }
@@ -37,11 +20,11 @@ public class BinaryTreeConstructor {
         Queue<TreeNode> nodesToHandle= new LinkedList<TreeNode>();
         TreeNode root = new TreeNode(values.poll());
         nodesToHandle.add(root);
-        newConstructTree(values,nodesToHandle);
+        ConstructTree(values,nodesToHandle);
         return root;
     }
 
-    private void newConstructTree(Queue<Integer> values, Queue<TreeNode> nodesToHandle){
+    private void ConstructTree(Queue<Integer> values, Queue<TreeNode> nodesToHandle){
         TreeNode node;
         TreeNode newNode;
         Integer val;

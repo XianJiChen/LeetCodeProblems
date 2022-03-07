@@ -1,9 +1,7 @@
 package com.Q111_Minimum_Depth_of_Binary_Tree;
 
 import com.BinaraTreeConstructor.BinaryTreeConstructor;
-import com.BinarySearchTree.BinarySearchTreeNode;
 import com.TreeNode.*;
-import com.sun.source.tree.Tree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -125,7 +123,7 @@ public class Main {
         BinaryTreeConstructor btc = new BinaryTreeConstructor();
         Solution tt = new Solution();
         for(List<Integer> input : inputs){
-            TreeNode tn = btc.newConstruct(input);
+            TreeNode tn = btc.construct(input);
             System.out.println(tt.minDepth(tn));
             System.out.println("==========================");
         }

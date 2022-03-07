@@ -60,10 +60,10 @@ public class Main {
         BinaryTreeConstructor bt = new BinaryTreeConstructor();
         Solution tt = new Solution();
         for(int i=0; i<ps.size(); i++){
-            TreeNode tnp = bt.newConstruct(ps.get(i));
+            TreeNode tnp = bt.construct(ps.get(i));
             System.out.println(bt.inorderTraversal(tnp));
             System.out.println("/////////////////////");
-            TreeNode tnq = bt.newConstruct(qs.get(i));
+            TreeNode tnq = bt.construct(qs.get(i));
             System.out.println(bt.inorderTraversal(tnq));
             System.out.println("/////////////////////");
             System.out.println(tt.isSameTree(tnp, tnq));

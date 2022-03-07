@@ -43,7 +43,7 @@ public class Main {
         BinaryTreeConstructor bt = new BinaryTreeConstructor();
         Solution tt = new Solution();
         for(List<Integer> arr : inputs){
-            TreeNode tn = bt.newConstruct(arr);
+            TreeNode tn = bt.construct(arr);
             System.out.println(tt.inorderTraversal(tn).toString());
             System.out.println("==============================");
         }
