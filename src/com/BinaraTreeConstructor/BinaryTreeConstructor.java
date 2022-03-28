@@ -24,6 +24,21 @@ public class BinaryTreeConstructor {
         return root;
     }
 
+    public TreeNode construct(int[] nums){
+        if(nums.length==0){
+            return null;
+        }
+        this.start = 0;
+        List<Integer> arr = Arrays.stream(nums).boxed().toList();
+        Queue<Integer> values= new LinkedList<Integer>();
+        values.addAll(arr);
+        Queue<TreeNode> nodesToHandle= new LinkedList<TreeNode>();
+        TreeNode root = new TreeNode(values.poll());
+        nodesToHandle.add(root);
+        ConstructTree(values,nodesToHandle);
+        return root;
+    }
+
     private void ConstructTree(Queue<Integer> values, Queue<TreeNode> nodesToHandle){
         TreeNode node;
         TreeNode newNode;

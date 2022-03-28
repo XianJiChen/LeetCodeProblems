@@ -1,10 +1,9 @@
 package com.Q160_Intersection_of_Two_Linked_Lists;
 
-import com.LinkedListConstructor;
+import com.ListNode.LinkedListConstructor;
 import com.ListNode.ListNode;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 
