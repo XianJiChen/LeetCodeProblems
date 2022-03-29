@@ -4,39 +4,30 @@ import java.util.*;
 import com.TreeNode.*;
 
 public class BinaryTreeConstructor {
-    public int start;
+    private int start;
+    private TreeNode root;
 
     public BinaryTreeConstructor() {
         this.start = 0;
     }
 
-    public TreeNode construct(List<Integer> arr){
-        if(arr.isEmpty()){
-            return null;
-        }
+    public void construct(List<Integer> arr){
+        this.root=null;
         this.start = 0;
+        if(arr.isEmpty()){
+            return;
+        }
         Queue<Integer> values= new LinkedList<Integer>();
         values.addAll(arr);
         Queue<TreeNode> nodesToHandle= new LinkedList<TreeNode>();
-        TreeNode root = new TreeNode(values.poll());
+        this.root = new TreeNode(values.poll());
         nodesToHandle.add(root);
         ConstructTree(values,nodesToHandle);
-        return root;
     }
 
-    public TreeNode construct(int[] nums){
-        if(nums.length==0){
-            return null;
-        }
-        this.start = 0;
+    public void construct(int[] nums){
         List<Integer> arr = Arrays.stream(nums).boxed().toList();
-        Queue<Integer> values= new LinkedList<Integer>();
-        values.addAll(arr);
-        Queue<TreeNode> nodesToHandle= new LinkedList<TreeNode>();
-        TreeNode root = new TreeNode(values.poll());
-        nodesToHandle.add(root);
-        ConstructTree(values,nodesToHandle);
-        return root;
+        this.construct(arr);
     }
 
     private void ConstructTree(Queue<Integer> values, Queue<TreeNode> nodesToHandle){
@@ -74,6 +65,38 @@ public class BinaryTreeConstructor {
             ans.add(root.val);
             ans.addAll(inorderTraversal(root.right));
             return ans;
+        }
+    }
+
+    public TreeNode getRoot() {
+        return root;
+    }
+
+    public TreeNode getNode(int val){
+        return getNode(this.root,val);
+    }
+
+    private TreeNode getNode(TreeNode root, int val){
+        if(root==null){
+            return null;
+        }
+        else {
+            if(root.val==val){
+                return root;
+            }
+            else{
+                TreeNode leftResult = (root.left==null) ? null : getNode(root.left,val);
+                TreeNode rightResult = (root.right==null) ? null: getNode(root.right,val);
+                if(leftResult==null&&rightResult==null){
+                    return null;
+                }
+                else if(leftResult!=null){
+                    return leftResult;
+                }
+                else{
+                    return rightResult;
+                }
+            }
         }
     }
 }
