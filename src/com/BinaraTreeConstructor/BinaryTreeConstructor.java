@@ -11,11 +11,11 @@ public class BinaryTreeConstructor {
         this.start = 0;
     }
 
-    public void construct(List<Integer> arr){
+    public TreeNode construct(List<Integer> arr){
         this.root=null;
         this.start = 0;
         if(arr.isEmpty()){
-            return;
+            return null;
         }
         Queue<Integer> values= new LinkedList<Integer>();
         values.addAll(arr);
@@ -23,11 +23,13 @@ public class BinaryTreeConstructor {
         this.root = new TreeNode(values.poll());
         nodesToHandle.add(root);
         ConstructTree(values,nodesToHandle);
+        return this.root;
     }
 
-    public void construct(int[] nums){
+    public TreeNode construct(int[] nums){
         List<Integer> arr = Arrays.stream(nums).boxed().toList();
         this.construct(arr);
+        return this.root;
     }
 
     private void ConstructTree(Queue<Integer> values, Queue<TreeNode> nodesToHandle){

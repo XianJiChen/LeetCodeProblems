@@ -7,11 +7,14 @@ import java.util.List;
 public class LinkedListConstructor {
     private ListNode head;
     private ListNode tail;
+    private int count;
     public ListNode construct(int[] input){
         this.head = this.tail = null;
+        this.count = 0;
         if(input.length==0){
             return null;
         }
+        this.count = input.length;
 
         head = tail = new ListNode(input[0]);
         for(int i=1; i<input.length; i++){
@@ -42,5 +45,25 @@ public class LinkedListConstructor {
     }
     public ListNode getTail(){
         return this.tail;
+    }
+
+    public ListNode getNodeByIndex(int index){
+        if(index<0|| index>this.count){
+            return null;
+        }
+        ListNode cur = this.head;
+        for(int i=0; i<index; i++){
+            cur = cur.next;
+        }
+        return cur;
+    }
+
+    public ListNode getNodeByVal(int val){
+        for(ListNode cur = this.head; cur!=null; cur = cur.next){
+            if(cur.val==val){
+                return cur;
+            }
+        }
+        return null;
     }
 }
